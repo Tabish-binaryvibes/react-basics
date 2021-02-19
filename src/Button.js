@@ -1,11 +1,11 @@
-function Button() {
-  const handleClick = (e) => {
-    console.log(e, "this is React Event");
-  };
+import { PropTypes } from "prop-types";
+function Button({ clickFunction }) {
   return (
     <>
       <button
-        onClick={handleClick}
+        onClick={() => {
+          clickFunction(1);
+        }}
         style={{ color: "white", backgroundColor: "black" }}
       >
         Click here
@@ -13,4 +13,8 @@ function Button() {
     </>
   );
 }
+Button.propTypes = {
+  clickFunction: PropTypes.func,
+};
+
 export default Button;

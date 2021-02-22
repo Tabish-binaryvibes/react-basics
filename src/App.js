@@ -19,10 +19,11 @@ function App() {
     <>
       <BrowserRouter>
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/tabish">
             HOME
             <Header title={"Tabish Zaman"} />
           </Route>
+
           <Route path="/about">About</Route>
         </Switch>
       </BrowserRouter>

@@ -2,21 +2,24 @@ import { PropTypes } from "prop-types";
 import { useState } from "react";
 import Button from "./Button";
 import Task from "./tasks";
+import AddTask from "./addTask";
 function Header(props) {
   const [task, taskFunction] = useState(dataArray);
   const clickFunction = (id) => {
     console.log(id, "event handling ...");
   };
   const deleteTask = (id) => {
-    console.log(id);
     taskFunction(task.filter((data) => data.id !== id));
-    console.log(id);
+  };
+  const addTask = (obj) => {
+    taskFunction([...task, obj]);
   };
   return (
     <>
       <h1 style={{ backgroundColor: "red" }}>This is {props.title}</h1>
       <h1 className="sec">This is Second Line</h1>
       <Button clickFunction={clickFunction} />
+      <AddTask onAdd={addTask} />
       <Task taskObj={task} deleteMethod={deleteTask} />
     </>
   );

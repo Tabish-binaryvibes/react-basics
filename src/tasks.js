@@ -3,8 +3,8 @@ function Task({ taskObj, deleteMethod }) {
   return (
     <>
       {taskObj &&
-        taskObj.map((data) => (
-          <SingleTask taskObj={data} onDelete={deleteMethod} />
+        taskObj.map((data, i) => (
+          <SingleTask taskObj={data} key={i} onDelete={deleteMethod} />
         ))}
     </>
   );
